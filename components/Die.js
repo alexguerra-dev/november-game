@@ -5,7 +5,7 @@ export default function Die({ value, active, scoring, keepButtonHandler }) {
         switch (numberOfPips) {
             case 0:
                 return (
-                    <div className="grid grid-cols-3 grid-rows-3">
+                    <div className="grid grid-cols-3 grid-rows-3 pointer-events-none">
                         <div className="w-12 h-12 bg-transparent rounded-full"></div>
                         <div className="w-12 h-12 bg-transparent rounded-full"></div>
                         <div className="w-12 h-12 bg-transparent rounded-full"></div>
@@ -19,7 +19,7 @@ export default function Die({ value, active, scoring, keepButtonHandler }) {
                 break
             case 1:
                 return (
-                    <div className="grid grid-cols-3 grid-rows-3">
+                    <div className="grid grid-cols-3 grid-rows-3 pointer-events-none">
                         <div className="w-12 h-12 bg-transparent rounded-full"></div>
                         <div className="w-12 h-12 bg-transparent rounded-full"></div>
                         <div className="w-12 h-12 bg-transparent rounded-full"></div>
@@ -34,7 +34,7 @@ export default function Die({ value, active, scoring, keepButtonHandler }) {
 
             case 2:
                 return (
-                    <div className="grid grid-cols-3 grid-rows-3">
+                    <div className="grid grid-cols-3 grid-rows-3 pointer-events-none">
                         <div className="w-12 h-12 bg-black rounded-full"></div>
                         <div className="w-12 h-12 bg-transparent rounded-full"></div>
                         <div className="w-12 h-12 bg-transparent rounded-full"></div>
@@ -50,7 +50,7 @@ export default function Die({ value, active, scoring, keepButtonHandler }) {
 
             case 3:
                 return (
-                    <div className="grid grid-cols-3 grid-rows-3">
+                    <div className="grid grid-cols-3 grid-rows-3 pointer-events-none">
                         <div className="w-12 h-12 bg-black rounded-full"></div>
                         <div className="w-12 h-12 bg-transparent rounded-full"></div>
                         <div className="w-12 h-12 bg-transparent rounded-full"></div>
@@ -66,7 +66,7 @@ export default function Die({ value, active, scoring, keepButtonHandler }) {
 
             case 4:
                 return (
-                    <div className="grid grid-cols-3 grid-rows-3">
+                    <div className="grid grid-cols-3 grid-rows-3 pointer-events-none">
                         <div className="w-12 h-12 bg-black rounded-full"></div>
                         <div className="w-12 h-12 bg-transparent rounded-full"></div>
                         <div className="w-12 h-12 bg-black rounded-full"></div>
