@@ -125,7 +125,7 @@ export default function Die({ value, active, scoring, keepButtonHandler }) {
             )
         } else {
             return (
-                <div className=" bg-slate-800 mx-auto">
+                <div className=" bg-white border-black border-8 mx-auto rounded">
                     <Grid numberOfPips={value}></Grid>
                 </div>
             )
@@ -134,14 +134,17 @@ export default function Die({ value, active, scoring, keepButtonHandler }) {
 
     const InactiveFace = ({ value }) => {
         return (
-            <div className=" bg-white mx-auto p-4 rounded-lg">
+            <div className=" bg-gray-500 border-black border-8 mx-auto  rounded">
                 <Grid numberOfPips={value}></Grid>
             </div>
         )
     }
 
     return (
-        <div className="bg-white text-center border-amber-500 border-4 flex flex-col justify-center shadow-xl">
+        <div
+            className="bg-transparent text-center flex flex-col justify-center "
+            onClick={keepButtonHandler}
+        >
             {/* <div className="w-20 h-20 bg-slate-600 mx-auto">
                 <p className="text-2xl">{value}</p>
             </div> */}
@@ -153,12 +156,6 @@ export default function Die({ value, active, scoring, keepButtonHandler }) {
             ) : (
                 <InactiveFace value={value}></InactiveFace>
             )}
-            <button
-                className="border-violet-400 border-4 font-sans rounded bg-slate-800 text-yellow-200 w-20 rotate-12"
-                onClick={keepButtonHandler}
-            >
-                Keep
-            </button>
         </div>
     )
 }

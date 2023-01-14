@@ -37,6 +37,15 @@ export default function Home() {
         const newDice = dice.map((die) => {
             const newRoll = rollDie()
 
+            if (die.active) {
+                return {
+                    ...die,
+                    value: newRoll,
+                }
+            } else {
+                return { ...die }
+            }
+
             if (newRoll === 1) {
                 return {
                     ...die,
@@ -55,6 +64,21 @@ export default function Home() {
         setDice(newDice)
     }
 
+    const keepButtonHandler = (dieId) => {
+        const newDice = dice.map((die) => {
+            if (die.id === dieId) {
+                return {
+                    ...die,
+                    active: !die.active,
+                }
+            }
+            return {
+                ...die,
+            }
+        })
+        setDice(newDice)
+    }
+
     return (
         <>
             <Head>
@@ -69,14 +93,7 @@ export default function Home() {
             <main className="h-screen bg-gradient-to-r from-cyan-500 to-blue-500">
                 {gameActive ? (
                     <>
-                        <Image
-                            src="/teresa.png"
-                            alt="Image"
-                            width="64"
-                            height="64"
-                        ></Image>
-
-                        <div className=" bg-green-700 grid grid-cols-3 gap-4 border-black border-4 rounded p-8 container mx-auto">
+                        <div className=" bg-transparent grid grid-cols-3 gap-4 border-black border-4 rounded p-8 container mx-auto">
                             {dice.map((die) => {
                                 return (
                                     <div key={die.id}>
@@ -85,10 +102,7 @@ export default function Home() {
                                             active={die.active}
                                             scoring={die.scoring}
                                             keepButtonHandler={() => {
-                                                console.log(
-                                                    'The id is... ',
-                                                    die.id,
-                                                )
+                                                keepButtonHandler(die.id)
                                             }}
                                         ></Die>
                                     </div>
