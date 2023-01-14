@@ -1,11 +1,25 @@
 import React from 'react'
 
-export default function Die({ value, active, keepButtonHandler }) {
+export default function Die({ value, active, scoring, keepButtonHandler }) {
     const Grid = ({ numberOfPips }) => {
         switch (numberOfPips) {
+            case 0:
+                return (
+                    <div className="grid grid-cols-3 grid-rows-3">
+                        <div className="w-12 h-12 bg-transparent rounded-full"></div>
+                        <div className="w-12 h-12 bg-transparent rounded-full"></div>
+                        <div className="w-12 h-12 bg-transparent rounded-full"></div>
+                        <div className="w-12 h-12 bg-transparent rounded-full"></div>
+                        <div className="w-12 h-12 bg-transparent rounded-full"></div>
+                        <div className="w-12 h-12 bg-transparent rounded-full"></div>
+                        <div className="w-12 h-12 bg-transparent rounded-full"></div>
+                        <div className="w-12 h-12 bg-transparent rounded-full"></div>
+                    </div>
+                )
+                break
             case 1:
                 return (
-                    <div className="grid grid-cols-3">
+                    <div className="grid grid-cols-3 grid-rows-3">
                         <div className="w-12 h-12 bg-transparent rounded-full"></div>
                         <div className="w-12 h-12 bg-transparent rounded-full"></div>
                         <div className="w-12 h-12 bg-transparent rounded-full"></div>
@@ -20,7 +34,7 @@ export default function Die({ value, active, keepButtonHandler }) {
 
             case 2:
                 return (
-                    <div className="grid grid-cols-3">
+                    <div className="grid grid-cols-3 grid-rows-3">
                         <div className="w-12 h-12 bg-black rounded-full"></div>
                         <div className="w-12 h-12 bg-transparent rounded-full"></div>
                         <div className="w-12 h-12 bg-transparent rounded-full"></div>
@@ -36,10 +50,10 @@ export default function Die({ value, active, keepButtonHandler }) {
 
             case 3:
                 return (
-                    <div className="grid grid-cols-3">
+                    <div className="grid grid-cols-3 grid-rows-3">
                         <div className="w-12 h-12 bg-black rounded-full"></div>
                         <div className="w-12 h-12 bg-transparent rounded-full"></div>
-                        <div className="w-12 h-12 bg-black rounded-full"></div>
+                        <div className="w-12 h-12 bg-transparent rounded-full"></div>
                         <div className="w-12 h-12 bg-transparent rounded-full"></div>
                         <div className="w-12 h-12 bg-black rounded-full"></div>
                         <div className="w-12 h-12 bg-transparent rounded-full"></div>
@@ -52,15 +66,15 @@ export default function Die({ value, active, keepButtonHandler }) {
 
             case 4:
                 return (
-                    <div className="grid grid-cols-3">
+                    <div className="grid grid-cols-3 grid-rows-3">
                         <div className="w-12 h-12 bg-black rounded-full"></div>
+                        <div className="w-12 h-12 bg-transparent rounded-full"></div>
                         <div className="w-12 h-12 bg-black rounded-full"></div>
+                        <div className="w-12 h-12 bg-transparent rounded-full"></div>
+                        <div className="w-12 h-12 bg-transparent rounded-full"></div>
+                        <div className="w-12 h-12 bg-bltransparentack rounded-full"></div>
                         <div className="w-12 h-12 bg-black rounded-full"></div>
-                        <div className="w-12 h-12 bg-black rounded-full"></div>
-                        <div className="w-12 h-12 bg-black rounded-full"></div>
-                        <div className="w-12 h-12 bg-black rounded-full"></div>
-                        <div className="w-12 h-12 bg-black rounded-full"></div>
-                        <div className="w-12 h-12 bg-black rounded-full"></div>
+                        <div className="w-12 h-12 bg-transparent rounded-full"></div>
                         <div className="w-12 h-12 bg-black rounded-full"></div>
                     </div>
                 )
@@ -68,15 +82,15 @@ export default function Die({ value, active, keepButtonHandler }) {
 
             case 5:
                 return (
-                    <div className="grid grid-cols-3">
+                    <div className="grid grid-cols-3 grid-rows-3 w-fit">
                         <div className="w-12 h-12 bg-black rounded-full"></div>
+                        <div className="w-12 h-12 bg-transparent rounded-full"></div>
                         <div className="w-12 h-12 bg-black rounded-full"></div>
+                        <div className="w-12 h-12 bg-transparent rounded-full"></div>
                         <div className="w-12 h-12 bg-black rounded-full"></div>
+                        <div className="w-12 h-12 bg-transparent rounded-full"></div>
                         <div className="w-12 h-12 bg-black rounded-full"></div>
-                        <div className="w-12 h-12 bg-black rounded-full"></div>
-                        <div className="w-12 h-12 bg-black rounded-full"></div>
-                        <div className="w-12 h-12 bg-black rounded-full"></div>
-                        <div className="w-12 h-12 bg-black rounded-full"></div>
+                        <div className="w-12 h-12 bg-transparent rounded-full"></div>
                         <div className="w-12 h-12 bg-black rounded-full"></div>
                     </div>
                 )
@@ -84,7 +98,7 @@ export default function Die({ value, active, keepButtonHandler }) {
 
             case 6:
                 return (
-                    <div className="grid grid-cols-3">
+                    <div className="grid grid-cols-3 grid-rows-3">
                         <div className="w-12 h-12 bg-black rounded-full"></div>
                         <div className="w-12 h-12 bg-transparent rounded-full"></div>
                         <div className="w-12 h-12 bg-black rounded-full"></div>
@@ -92,7 +106,7 @@ export default function Die({ value, active, keepButtonHandler }) {
                         <div className="w-12 h-12 bg-black rounded-full"></div>
                         <div className="w-12 h-12 bg-transparent rounded-full"></div>
                         <div className="w-12 h-12 bg-black rounded-full"></div>
-                        <div className="w-12 h-12 bg-black rounded-full"></div>
+                        <div className="w-12 h-12 bg-transparent rounded-full"></div>
                         <div className="w-12 h-12 bg-black rounded-full"></div>
                     </div>
                 )
@@ -102,21 +116,26 @@ export default function Die({ value, active, keepButtonHandler }) {
                 break
         }
     }
-    const ActiveFace = ({ value }) => {
-        return (
-            <div className="w-24 h-24 bg-slate-800 mx-auto">
-                <p className="text-2xl">{value}</p>
-                <Grid numberOfPips={1}></Grid>
-            </div>
-        )
+    const ActiveFace = ({ value, scoring }) => {
+        if (scoring) {
+            return (
+                <div className=" bg-white border-black border-8 mx-auto rounded">
+                    <Grid numberOfPips={value}></Grid>
+                </div>
+            )
+        } else {
+            return (
+                <div className=" bg-slate-800 mx-auto">
+                    <Grid numberOfPips={value}></Grid>
+                </div>
+            )
+        }
     }
 
     const InactiveFace = ({ value }) => {
         return (
-            <div className="w-20 h-20 bg-slate-500 mx-auto">
+            <div className=" bg-white mx-auto p-4 rounded-lg">
                 <Grid numberOfPips={value}></Grid>
-                <p className="text-2xl">{value}</p>
-                <p>asdf</p>
             </div>
         )
     }
@@ -130,7 +149,7 @@ export default function Die({ value, active, keepButtonHandler }) {
             {/* <ActiveFace value={value}></ActiveFace> */}
 
             {active ? (
-                <ActiveFace value={value}></ActiveFace>
+                <ActiveFace value={value} scoring={scoring}></ActiveFace>
             ) : (
                 <InactiveFace value={value}></InactiveFace>
             )}

@@ -1,17 +1,20 @@
 import { useState } from 'react'
 import Head from 'next/head'
+import Image from 'next/image'
 
 import Die from '../components/Die'
 
 export default function Home() {
     const [hidden, setHidden] = useState(true)
     const [gameActive, setGameActive] = useState(false)
+    const [game, setGame] = useState({ players: 'Alex' })
+    const [turn, setTurn] = useState([])
     const [dice, setDice] = useState([
-        { id: 1, value: 1, active: true, kept: false },
-        { id: 2, value: 2, active: true, kept: false },
-        { id: 3, value: 3 },
-        { id: 4, value: 1 },
-        { id: 5, value: 1 },
+        { id: 1, value: 0, active: true, scoring: false },
+        { id: 2, value: 0, active: true, scoring: false },
+        { id: 3, value: 0, active: true, scoring: false },
+        { id: 4, value: 0, active: true, scoring: false },
+        { id: 5, value: 0, active: true, scoring: false },
     ])
 
     const rollDie = () => {
@@ -32,9 +35,20 @@ export default function Home() {
 
     const rollButtonHandler = () => {
         const newDice = dice.map((die) => {
+            const newRoll = rollDie()
+
+            if (newRoll === 1) {
+                return {
+                    ...die,
+                    value: newRoll,
+                    scoring: true,
+                }
+            }
+
             return {
                 ...die,
-                value: rollDie(),
+                value: newRoll,
+                scoring: false,
             }
         })
 
@@ -55,14 +69,12 @@ export default function Home() {
             <main className="h-screen bg-gradient-to-r from-cyan-500 to-blue-500">
                 {gameActive ? (
                     <>
-                        <div className="container">
-                            <button
-                                className="bg-black text-white m-4 p-4"
-                                onClick={rollButtonHandler}
-                            >
-                                Start
-                            </button>
-                        </div>
+                        <Image
+                            src="/teresa.png"
+                            alt="Image"
+                            width="64"
+                            height="64"
+                        ></Image>
 
                         <div className=" bg-green-700 grid grid-cols-3 gap-4 border-black border-4 rounded p-8 container mx-auto">
                             {dice.map((die) => {
@@ -71,6 +83,7 @@ export default function Home() {
                                         <Die
                                             value={die.value}
                                             active={die.active}
+                                            scoring={die.scoring}
                                             keepButtonHandler={() => {
                                                 console.log(
                                                     'The id is... ',
@@ -89,7 +102,10 @@ export default function Home() {
                         >
                             Pass And Keep your Points
                         </button>
-                        <button className="bg-yellow-400 rounded">
+                        <button
+                            className="bg-yellow-400 rounded"
+                            onClick={rollButtonHandler}
+                        >
                             Roll Again
                         </button>
                     </>
@@ -105,6 +121,39 @@ export default function Home() {
                             >
                                 Roll And Start The Game
                             </button>
+
+                            <button className="btn">Learn To Play</button>
+                            {/* The button to open modal */}
+                            <label htmlFor="my-modal" className="btn">
+                                open modal
+                            </label>
+
+                            {/* Put this part before </body> tag */}
+                            <input
+                                type="checkbox"
+                                id="my-modal"
+                                className="modal-toggle"
+                            />
+                            <div className="modal">
+                                <div className="modal-box">
+                                    <h3 className="font-bold text-lg">
+                                        Congratulations random Internet user!
+                                    </h3>
+                                    <p className="py-4">
+                                        You've been selected for a chance to get
+                                        one year of subscription to use
+                                        Wikipedia for free!
+                                    </p>
+                                    <div className="modal-action">
+                                        <label
+                                            htmlFor="my-modal"
+                                            className="btn"
+                                        >
+                                            Yay!
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 )}
