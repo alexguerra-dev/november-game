@@ -99,7 +99,6 @@ export default function Home() {
                             <p className="bg-red-700 mt-3">
                                 The game is not active
                             </p>
-                            <p>You could make a button to start the game.</p>
                             <button
                                 className="bg-fuchsia-600 p-5 rounded-lg shadow-lg text-2xl mt-8 m-2 active:bg-fuchsia-800"
                                 onClick={startButtonHandler}
